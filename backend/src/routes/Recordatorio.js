@@ -22,7 +22,7 @@ router.get('/Recordatorio',(req,res)=>{
 
 /
 
-router.post('/Reciclaje', (req, res) => {
+router.post('/Recordatorio', (req, res) => {
   const {id,Lugar_de_encuentro,Fecha_y_hora,Descripcion,ID_Usuario} = req.body
   let Reciclaje = [id,Lugar_de_encuentro,Fecha_y_hora,Descripcion,ID_Usuario];
   let nuevoReciclaje = `INSERT INTO Reciclaje VALUES (?,?,?,?,?);`
