@@ -22,10 +22,10 @@ router.get('/Usuario',(req,res)=>{
 
 /
 
-router.post('/Reciclaje', (req, res) => {
-  const {id,Lugar_de_encuentro,Fecha_y_hora,Descripcion,ID_Usuario} = req.body
-  let Reciclaje = [id,Lugar_de_encuentro,Fecha_y_hora,Descripcion,ID_Usuario];
-  let nuevoReciclaje = `INSERT INTO Reciclaje VALUES (?,?,?,?,?);`
+router.post('/Usuario', (req, res) => {
+  const {id,Nombres,Apellidos,ID_Usuario,Celular,telefono,Correo,Contraseña,Ciudad,Calle,Numero,Barrio} = req.body
+  let Reciclaje = [id,Nombres,Apellidos,ID_Usuario,Celular,telefono,Correo,Contraseña,Ciudad,Calle,Numero,Barrio];
+  let nuevoReciclaje = `INSERT INTO Usuario VALUES (?,?,?,?,?,?,?,?,?,?,?,?);`
 
  mysqlConnection.query(nuevoReciclaje,Reciclaje, (err,results,fields) => {
    if(err){
