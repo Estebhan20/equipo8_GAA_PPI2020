@@ -35,8 +35,8 @@ router.post('/Recordatorio', (req, res) => {
  });
 });
 
-router.put('/Reciclaje/:id', (req,res) => {
-  const {Lugar_de_encuentro,Fecha_y_hora,Descripcion,ID_Usuario} = req.body
+router.put('/Recordatorio/:id', (req,res) => {
+  const {Mensaje,Fecha,Descripcion,Hora} = req.body
   const { id } = req.params 
 
 mysqlConnection.query(`UPDATE Reciclaje SET Lugar_de_encuentro = ?,Fecha_y_hora = ?,Descripcion= ?,ID_Usuario= ? WHERE id = ?`,[Lugar_de_encuentro,Fecha_y_hora,Descripcion,ID_Usuario,id], (err, rows,fields) => {
