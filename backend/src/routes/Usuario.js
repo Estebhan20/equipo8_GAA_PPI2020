@@ -4,9 +4,7 @@ const router = Router();
 
 const mysqlConnection = require('./db/db.js');
 
-router.get('/',(req,res)=>{
-  res.send('Si funciona')
-})
+
 
 router.get('/Usuario',(req,res)=>{
   mysqlConnection.query('SELECT * FROM Usuario',
@@ -58,6 +56,7 @@ router.delete('/Usuario/:id', (req,res) => {
     }
   });
 });
+
 
 
 
