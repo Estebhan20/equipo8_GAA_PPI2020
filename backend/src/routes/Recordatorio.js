@@ -23,15 +23,15 @@ router.get('/Recordatorio',(req,res)=>{
 /
 
 router.post('/Recordatorio', (req, res) => {
-  const {id,Lugar_de_encuentro,Fecha_y_hora,Descripcion,ID_Usuario} = req.body
-  let Reciclaje = [id,Lugar_de_encuentro,Fecha_y_hora,Descripcion,ID_Usuario];
-  let nuevoReciclaje = `INSERT INTO Reciclaje VALUES (?,?,?,?,?);`
+  const {id,Mensaje,Fecha,Descripcion,Hora} = req.body
+  let Recordatorio = [id,Mensaje,Fecha,Descripcion,Hora];
+  let nuevoRecordatorio = `INSERT INTO Recordatorio VALUES (?,?,?,?,?);`
 
- mysqlConnection.query(nuevoReciclaje,Reciclaje, (err,results,fields) => {
+ mysqlConnection.query(nuevoRecordatorio,Recordatorio, (err,results,fields) => {
    if(err){
      return console.error(err.message);
    }
-   res.json({message:`Reciclaje Almacenada en la base de datos`})
+   res.json({message:`Recordatorio Almacenado en la base de datos`})
  });
 });
 
