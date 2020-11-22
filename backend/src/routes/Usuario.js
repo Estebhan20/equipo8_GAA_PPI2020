@@ -8,8 +8,8 @@ router.get('/',(req,res)=>{
   res.send('Si funciona')
 })
 
-router.get('/Reciclaje',(req,res)=>{
-  mysqlConnection.query('SELECT * FROM Reciclaje',
+router.get('/Usuario',(req,res)=>{
+  mysqlConnection.query('SELECT * FROM Usuario',
   (err,rows,fields)=>{
     if(!err)
    {
