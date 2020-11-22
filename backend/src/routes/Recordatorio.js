@@ -39,14 +39,15 @@ router.put('/Recordatorio/:id', (req,res) => {
   const {Mensaje,Fecha,Descripcion,Hora} = req.body
   const { id } = req.params 
 
-mysqlConnection.query(`UPDATE Reciclaje SET Lugar_de_encuentro = ?,Fecha_y_hora = ?,Descripcion= ?,ID_Usuario= ? WHERE id = ?`,[Lugar_de_encuentro,Fecha_y_hora,Descripcion,ID_Usuario,id], (err, rows,fields) => {
+mysqlConnection.query(`UPDATE Recordatorio SET Mensaje =?,Fecha =?,Descripcion =?,Hora= ? WHERE id = ?`,[Mensaje,Fecha,Descripcion,Hora,id], (err, rows,fields) => {
    if(!err){
-    res.json({status: `El Reciclaje ha sido actualizado con éxito`});
+    res.json({status: `El Recordatorio ha sido actualizado con éxito`});
    }else{
      console.log(err);
    }
 });
 });
+
 
 router.delete('/Reciclaje/:id', (req,res) => {
   const { id } = req.params;
