@@ -24,18 +24,18 @@ router.get('/Usuario',(req,res)=>{
 
 router.post('/Usuario', (req, res) => {
   const {id,Nombres,Apellidos,ID_Usuario,Celular,telefono,Correo,Contraseña,Ciudad,Calle,Numero,Barrio} = req.body
-  let Reciclaje = [id,Nombres,Apellidos,ID_Usuario,Celular,telefono,Correo,Contraseña,Ciudad,Calle,Numero,Barrio];
-  let nuevoReciclaje = `INSERT INTO Usuario VALUES (?,?,?,?,?,?,?,?,?,?,?,?);`
+  let Usuario = [id,Nombres,Apellidos,ID_Usuario,Celular,telefono,Correo,Contraseña,Ciudad,Calle,Numero,Barrio];
+  let nuevoUsuario = `INSERT INTO Usuario VALUES (?,?,?,?,?,?,?,?,?,?,?,?);`
 
- mysqlConnection.query(nuevoReciclaje,Reciclaje, (err,results,fields) => {
+ mysqlConnection.query(nuevoUsuario,Usuario, (err,results,fields) => {
    if(err){
      return console.error(err.message);
    }
-   res.json({message:`Reciclaje Almacenada en la base de datos`})
+   res.json({message:`Usuario Almacenada en la base de datos`})
  });
 });
 
-router.put('/Reciclaje/:id', (req,res) => {
+router.put('/Usuario/:id', (req,res) => {
   const {Lugar_de_encuentro,Fecha_y_hora,Descripcion,ID_Usuario} = req.body
   const { id } = req.params 
 
