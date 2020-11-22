@@ -49,11 +49,11 @@ mysqlConnection.query(`UPDATE Recordatorio SET Mensaje =?,Fecha =?,Descripcion =
 });
 
 
-router.delete('/Reciclaje/:id', (req,res) => {
+router.delete('/Recordatorio/:id', (req,res) => {
   const { id } = req.params;
-  mysqlConnection.query(`DELETE FROM Reciclaje WHERE id =?`,[id],(err,rows,fields) => {
+  mysqlConnection.query(`DELETE FROM Recordatorio WHERE id =?`,[id],(err,rows,fields) => {
     if("!err"){
-      res.json({status: `El Reciclaje ha sido eliminado`})
+      res.json({status: `El Recordatorio ha sido eliminado`})
     }else{
       console.log(err);
     }
