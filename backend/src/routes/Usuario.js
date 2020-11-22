@@ -48,11 +48,11 @@ mysqlConnection.query(`UPDATE Usuario SET Nombres =?,Apellidos =?,ID_Usuario =?,
 });
 });
 
-router.delete('/Reciclaje/:id', (req,res) => {
+router.delete('/Usuario/:id', (req,res) => {
   const { id } = req.params;
-  mysqlConnection.query(`DELETE FROM Reciclaje WHERE id =?`,[id],(err,rows,fields) => {
+  mysqlConnection.query(`DELETE FROM Usuario WHERE id =?`,[id],(err,rows,fields) => {
     if("!err"){
-      res.json({status: `El Reciclaje ha sido eliminado`})
+      res.json({status: `El Usuario ha sido eliminado`})
     }else{
       console.log(err);
     }
