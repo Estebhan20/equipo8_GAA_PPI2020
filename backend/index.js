@@ -17,6 +17,8 @@ const Reciclaje = require ('./src/routes/Reciclaje.js')
 app.use('/api',Reciclaje);
 const Usuario = require ('./src/routes/Usuario.js')
 app.use('/api',Usuario);
+const Recordatorio = require ('./src/routes/Recordatorio.js')
+app.use('/api',Recordatorio);
 
 
 
