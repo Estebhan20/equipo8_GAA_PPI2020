@@ -39,7 +39,7 @@ router.put('/Recoger/:id', (req,res) => {
   const {ID_Articulo,ID_Reciclador} = req.body
   const { id } = req.params 
 
-mysqlConnection.query(`UPDATE Reciclaje SET ID_Articulo = ?,ID_Reciclador= ? WHERE id = ?`,[ID_Articulo,ID_Reciclador,id], (err, rows,fields) => {
+mysqlConnection.query(`UPDATE Recoger SET ID_Articulo = ?,ID_Reciclador= ? WHERE id = ?`,[ID_Articulo,ID_Reciclador,id], (err, rows,fields) => {
    if(!err){
     res.json({status: ` Recoger ha sido actualizado con éxito`});
    }else{
