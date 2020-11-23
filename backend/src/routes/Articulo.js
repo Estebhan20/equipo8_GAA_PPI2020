@@ -24,8 +24,8 @@ router.get('/Articulo',(req,res)=>{
 
 router.post('/Articulo', (req, res) => {
   const {id,Nombre,Descripcion,Row_3} = req.body
-  let Reciclaje = [id,Nombre,Descripcion,Row_3];
-  let nuevoReciclaje = `INSERT INTO Reciclaje VALUES (?,?,?,?,?);`
+  let Articulo = [id,Nombre,Descripcion,Row_3];
+  let nuevoArticulo = `INSERT INTO Articulo VALUES (?,?,?,?);`
 
  mysqlConnection.query(nuevoReciclaje,Reciclaje, (err,results,fields) => {
    if(err){
