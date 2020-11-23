@@ -39,7 +39,7 @@ router.put('/Reciclaje_Recordatorio/:id', (req,res) => {
   const {ID_Recordatorio,ID_Reciclaje} = req.body
   const { id } = req.params 
 
-mysqlConnection.query(`UPDATE Reciclaje_Recordatorio SET ID_Recordatorio = ?,ID_Reciclaje= ? `,[ID_Recordatorio,ID_Reciclaje,], (err, rows,fields) => {
+mysqlConnection.query(`UPDATE Reciclaje_Recordatorio SET ID_Recordatorio = ?,ID_Reciclaje= ? WHERE id = ? `,[ID_Recordatorio,ID_Reciclaje,id], (err, rows,fields) => {
    if(!err){
     res.json({status: `El Reciclaje_Recordatorio ha sido actualizado con éxito`});
    }else{
