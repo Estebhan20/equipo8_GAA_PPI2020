@@ -25,6 +25,8 @@ const Tipo_usuario = require ('./src/routes/Tipo_usuario.js')
 app.use('/api',Tipo_usuario);
 const Recoger = require ('./src/routes/Recoger.js')
 app.use('/api',Recoger);
+const Reciclaje_Recordatorio = require ('./src/routes/Reciclaje_Recordatorio.js')
+app.use('/api',Reciclaje_Recordatorio);
 
 
 
