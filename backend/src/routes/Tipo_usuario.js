@@ -22,37 +22,37 @@ router.get('/Tipo_usuario',(req,res)=>{
 
 /
 
-router.post('/Reciclaje', (req, res) => {
-  const {id,Lugar_de_encuentro,Fecha_y_hora,Descripcion,ID_Usuario} = req.body
-  let Reciclaje = [id,Lugar_de_encuentro,Fecha_y_hora,Descripcion,ID_Usuario];
-  let nuevoReciclaje = `INSERT INTO Reciclaje VALUES (?,?,?,?,?);`
+router.post('/Tipo_usuario', (req, res) => {
+  const {id,Descripcion,Nombre} = req.body
+  let Tipo_usuario = [id,Descripcion,Nombre];
+  let nuevoTipo_usuario = `INSERT INTO Tipo_usuario VALUES (?,?,?);`
 
- mysqlConnection.query(nuevoReciclaje,Reciclaje, (err,results,fields) => {
+ mysqlConnection.query(nuevoTipo_usuario,Tipo_usuario, (err,results,fields) => {
    if(err){
      return console.error(err.message);
    }
-   res.json({message:`Reciclaje Almacenada en la base de datos`})
+   res.json({message:`Tipo_usuario Almacenado en la base de datos`})
  });
 });
 
-router.put('/Reciclaje/:id', (req,res) => {
-  const {Lugar_de_encuentro,Fecha_y_hora,Descripcion,ID_Usuario} = req.body
+router.put('/Tipo_usuario/:id', (req,res) => {
+  const {Descripcion,Nombre} = req.body
   const { id } = req.params 
 
-mysqlConnection.query(`UPDATE Reciclaje SET Lugar_de_encuentro = ?,Fecha_y_hora = ?,Descripcion= ?,ID_Usuario= ? WHERE id = ?`,[Lugar_de_encuentro,Fecha_y_hora,Descripcion,ID_Usuario,id], (err, rows,fields) => {
+mysqlConnection.query(`UPDATE Tipo_usuario SET Descripcion =?,Nombre= ? WHERE id = ?`,[Descripcion,Nombre,id], (err, rows,fields) => {
    if(!err){
-    res.json({status: `El Reciclaje ha sido actualizado con éxito`});
+    res.json({status: `El Tipo_usuario ha sido actualizado con éxito`});
    }else{
      console.log(err);
    }
 });
 });
 
-router.delete('/Reciclaje/:id', (req,res) => {
+router.delete('/Tipo_usuario/:id', (req,res) => {
   const { id } = req.params;
-  mysqlConnection.query(`DELETE FROM Reciclaje WHERE id =?`,[id],(err,rows,fields) => {
+  mysqlConnection.query(`DELETE FROM Tipo_usuario WHERE id =?`,[id],(err,rows,fields) => {
     if("!err"){
-      res.json({status: `El Reciclaje ha sido eliminado`})
+      res.json({status: `El Tipo_usuario ha sido eliminado`})
     }else{
       console.log(err);
     }
