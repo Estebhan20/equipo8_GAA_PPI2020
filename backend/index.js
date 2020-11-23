@@ -23,6 +23,8 @@ const Articulo = require ('./src/routes/Articulo.js')
 app.use('/api',Articulo);
 const Tipo_usuario = require ('./src/routes/Tipo_usuario.js')
 app.use('/api',Tipo_usuario);
+const Recoger = require ('./src/routes/Recoger.js')
+app.use('/api',Recoger);
 
 
 
