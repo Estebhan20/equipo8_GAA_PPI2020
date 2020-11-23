@@ -8,8 +8,8 @@ router.get('/',(req,res)=>{
   res.send('Si funciona')
 })
 
-router.get('/Reciclaje',(req,res)=>{
-  mysqlConnection.query('SELECT * FROM Reciclaje',
+router.get('/Articulo',(req,res)=>{
+  mysqlConnection.query('SELECT * FROM Articulo',
   (err,rows,fields)=>{
     if(!err)
    {
@@ -22,7 +22,7 @@ router.get('/Reciclaje',(req,res)=>{
 
 /
 
-router.post('/Reciclaje', (req, res) => {
+router.post('/Articulo', (req, res) => {
   const {id,Lugar_de_encuentro,Fecha_y_hora,Descripcion,ID_Usuario} = req.body
   let Reciclaje = [id,Lugar_de_encuentro,Fecha_y_hora,Descripcion,ID_Usuario];
   let nuevoReciclaje = `INSERT INTO Reciclaje VALUES (?,?,?,?,?);`
