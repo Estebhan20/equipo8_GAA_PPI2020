@@ -27,6 +27,8 @@ const Recoger = require ('./src/routes/Recoger.js')
 app.use('/api',Recoger);
 const Reciclaje_Recordatorio = require ('./src/routes/Reciclaje_Recordatorio.js')
 app.use('/api',Reciclaje_Recordatorio);
+const Reciclador = require ('./src/routes/Reciclador.js')
+app.use('/api',Reciclador);
 
 
 
