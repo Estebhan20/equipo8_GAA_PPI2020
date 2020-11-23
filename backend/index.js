@@ -19,6 +19,8 @@ const Usuario = require ('./src/routes/Usuario.js')
 app.use('/api',Usuario);
 const Recordatorio = require ('./src/routes/Recordatorio.js')
 app.use('/api',Recordatorio);
+const Articulo = require ('./src/routes/Articulo.js')
+app.use('/api',Articulo);
 
 
 
