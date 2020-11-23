@@ -13,8 +13,13 @@ app.use((req, res, next) => {
   next();
 });
      
-const routes = require ('./src/routes/routes.js')
-app.use('/api',routes);
+const Reciclaje = require ('./src/routes/Reciclaje.js')
+app.use('/api',Reciclaje);
+
+
+
+
+
 app.use(express.urlencoded({extended: false}));
 
 app.listen(5000,()=>{
