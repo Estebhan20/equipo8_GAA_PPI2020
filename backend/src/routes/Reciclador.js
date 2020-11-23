@@ -23,36 +23,36 @@ router.get('/Reciclador',(req,res)=>{
 /
 
 router.post('/Reciclador', (req, res) => {
-  const {id,id,Nombres,Telefono,Row_3} = req.body
-  let Reciclador = [id,id,Nombres,Telefono,Row_3];
+  const {id,Nombres,Telefono,Row_3} = req.body
+  let Reciclador = [id,Nombres,Telefono,Row_3];
   let nuevoReciclador = `INSERT INTO Reciclador VALUES (?,?,?,?,?);`
 
  mysqlConnection.query(nuevoReciclador,Reciclador, (err,results,fields) => {
    if(err){
      return console.error(err.message);
    }
-   res.json({message:`Reciclaje Almacenada en la base de datos`})
+   res.json({message:`Reciclador Almacenado en la base de datos`})
  });
 });
 
-router.put('/Reciclaje/:id', (req,res) => {
-  const {Lugar_de_encuentro,Fecha_y_hora,Descripcion,ID_Usuario} = req.body
+router.put('/Reciclador/:id', (req,res) => {
+  const {Nombres,Telefono,Row_3} = req.body
   const { id } = req.params 
 
-mysqlConnection.query(`UPDATE Reciclaje SET Lugar_de_encuentro = ?,Fecha_y_hora = ?,Descripcion= ?,ID_Usuario= ? WHERE id = ?`,[Lugar_de_encuentro,Fecha_y_hora,Descripcion,ID_Usuario,id], (err, rows,fields) => {
+mysqlConnection.query(`UPDATE Reciclador SET Nombres = ?,Telefono = ?,Row_3= ? WHERE id = ?`,[Nombres,Telefono,Row_3,id], (err, rows,fields) => {
    if(!err){
-    res.json({status: `El Reciclaje ha sido actualizado con éxito`});
+    res.json({status: `El Reciclador ha sido actualizado con éxito`});
    }else{
      console.log(err);
    }
 });
 });
 
-router.delete('/Reciclaje/:id', (req,res) => {
+router.delete('/Reciclador/:id', (req,res) => {
   const { id } = req.params;
-  mysqlConnection.query(`DELETE FROM Reciclaje WHERE id =?`,[id],(err,rows,fields) => {
+  mysqlConnection.query(`DELETE FROM Reciclador WHERE id =?`,[id],(err,rows,fields) => {
     if("!err"){
-      res.json({status: `El Reciclaje ha sido eliminado`})
+      res.json({status: `El Reciclador ha sido eliminado`})
     }else{
       console.log(err);
     }
